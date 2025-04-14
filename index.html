@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!------- BOOTSTRAP & CSS LINKS ------->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="Icon" href="imgs/FinalIMG/mainLogo.ico">
+
+  
+  <title>Crisercon Services</title>
+<style>
+
+
+
+body {
+    padding-top: 80px;
+    background-color: #f5f5f5;
+}
+
+    /*----- NAVBAR -----*/
+
+.navbar {
+    background-color: #0f1d32;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #0f1d32, #1a2b48);
+    padding: 12px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+#criserconLogo{
+    width: 145px;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: white !important;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700 !important;
+    transform: scale(1.1);
+}
+.nav-item {
+    margin: 0 15px;
+}
+.btn-login {
+    background-color: #ffd700;
+    color: #0f1d32;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+.btn-login:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+.sched-btn {
+  font-weight: bold;
+  padding: 0.6rem 1.3rem; /* py-2 px-5 equivalent */
+  font-size: 0.8rem;
+}
+
+
+
+
+
+
+/* Hide dropdown menu by default */
+.offcanvas .dropdown-menu {
+  display: none; /* Hide dropdown menu */
+  position: absolute; /* Prevent it from affecting layout */
+  left: 0;
+  top: 100%; /* Position it below the parent */
+  z-index: 1050;
+  background-color: #0f1d32; /* Match the navbar background */
+  color: white; /* Ensure text is visible */
+  border: none; /* Remove border */
+}
+
+/* Show dropdown menu when the dropdown is active */
+.offcanvas .dropdown.show .dropdown-menu {
+  display: block; /* Show dropdown menu */
+  position: static; /* Prevent overlap issues */
+  box-shadow: none; /* Remove shadow */
+  background-color: transparent; /* Match offcanvas background */
+  border: none; /* Remove border */
+  padding: 0; /* Remove extra padding */
+}
+
+/* Adjust dropdown items for better visibility */
+.offcanvas .dropdown-menu .dropdown-item {
+  color: white; /* Ensure text is visible */
+}
+
+.offcanvas .dropdown-menu .dropdown-item:hover {
+  background-color: #ffd700; /* Highlight on hover */
+  color: #0f1d32; /* Text color on hover */
+}
+
+/* Remove hover-based dropdown behavior for mobile */
+@media (max-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: none; /* Disable hover behavior */
+  }
+}
+
+
+
+/* Show dropdown on hover */
+
+
+/* Ensure dropdown is hidden by default */
+.nav-item.dropdown .dropdown-menu {
+    display: block;  /* Bootstrap requires this for animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+}
+.nav-item.dropdown .dropdown-menu {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;  /* Smooth corners */
+}
+
+/* Show dropdown with animation on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* Initial state: Hidden and moved up */
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+
+  /*----- MAIN -----*/
+
+    /*----- BANNER -----*/
+
+.banner {
+    background: url(imgs/FinalIMG/website/banner.png) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+.banner .container {
+  position: absolute;
+  top: 40%; /* Move text higher */
+  transform: translateY(-30%);
+}
+.banner h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+.banner h1 span {
+  font-size: 5rem; /* Make highlighted text even bigger */
+}
+.info-section h2 {
+    font-size: 2.8rem; /* Increase heading size */
+    font-weight: bold;
+}
+.banner p {
+  font-size: 1.5rem; /* Increase paragraph size */
+  margin-top: 10px;
+}
+.banner .btn {
+    font-size: 1.6rem;
+    padding: 16px 32px;
+}
+
+    /*----- INFO SECTION -----*/
+    .info-card {
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 30px 20px;
+  background-color: #fff;
+  height: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto 20px auto; /* Centers image horizontally */
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+
+.info-card h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+  color: #000;
+}
+
+.info-card p {
+  flex-grow: 1;
+  transition: color 0.3s ease;
+  color: #000;
+}
+
+.read-more-btn {
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+}
+
+.info-card:hover {
+  background-color: #092e61;
+}
+
+.info-card:hover h5,
+.info-card:hover p {
+  color: #fff;
+}
+
+.info-card:hover .card-icon {
+  filter: brightness(0) invert(1);
+}
+
+.info-card:hover .read-more-btn {
+  background-color: #fff;
+  color: #092e61;
+}
+
+@media (max-width: 992px) {
+  .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .read-more-btn {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .read-more-btn {
+    font-size: 13px;
+    padding: 7px 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .read-more-btn {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .info-card {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-card h5 {
+    font-size: 1rem;
+  }
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  word-break: break-word;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #333;
+}
+
+.card-icon {
+  max-width: 60px;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure card titles wrap properly */
+.info-card h5 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .info-card h5 {
+    font-size: 1rem;
+  }
+
+  .info-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/*----- MORE ABOUT US -----*/
+
+.image-text-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    max-width: 90%;
+    margin: auto;
+}
+.image-text-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+.image-text-content {
+    padding: 20px;
+}
+.image-text-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0f1d32;
+}
+.image-text-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+}
+.image-text-content .btn {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+@media (max-width: 992px) {
+    .image-text-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .image-text-content {
+        padding: 30px 20px;
+    }
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+
+    /*----- FOOTER -----*/
+
+    .custom-footer {
+  background-color: #111e34 !important;
+  padding-top: 60px;
+}
+
+.custom-footer a {
+  color: #ddd;
+}
+
+.custom-footer a:hover {
+  color: #fff;
+}
+
+.custom-footer p {
+  color: #ccc;
+}
+
+.custom-footer .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .custom-footer .row {
+    text-align: center;
+  }
+
+  .custom-footer .col-md-3 {
+    margin-bottom: 30px;
+  }
+
+  .custom-footer .btn {
+    width: 100%;
+  }
+
+  .custom-footer .social-icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-footer .d-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+    /*----- RESPONSIVE -----*/
+
+@media (max-width: 992px) {
+    .info-box {
+        min-height: auto;
+        padding: 30px;
+    }
+
+    .info-box img {
+        width: 80px;
+    }
+    .info-box h5 {
+        font-size: 1.2rem;
+    }
+    .info-box p {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+}
+@media (max-width: 991px){
+    .sidebar {
+        background-color: rgba(225, 225, 225, 0.15);
+        backdrop-filter: blur(10px);
+    }
+    .offcanvas {
+        transition: none !important; /* Disable animation on small screens */
+    }
+}
+/* Hide the arrow (caret) for the dropdown */
+.navbar .dropdown-toggle::after,
+.offcanvas .dropdown-toggle::after {
+  display: none; /* Hide the default arrow */
+}
+</style>
+</head>
+<body>
+
+    <!------- HEADER/NAVBAR ------->
+    
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="imgs/FinalIMG/website/logo.png" alt="Crisercon Logo" id="criserconLogo" width="145">
+      </a>
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-start sidebar" id="offcanvas">
+        <div class="offcanvas-header border-bottom">
+          <img src="imgs/FinalIMG/website/logo.png" alt="Crisercon Logo" id="criserconLogo">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body text-center">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link text-light" href="index.html">HOME</a></li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="services.html" id="servicesDropdown" role="button" aria-expanded="false">
+                  SERVICES
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                  <li><a class="dropdown-item" href="service1.html">Aircon Installation</a></li>
+                  <li><a class="dropdown-item" href="service2.html">Aircon Repair</a></li>
+                  <li><a class="dropdown-item" href="service3.html">Aircon Cleaning</a></li>
+                  <li><a class="dropdown-item" href="service4.html">Refrigerator Repair</a></li>
+                  <li><a class="dropdown-item" href="service5.html">TV Troubleshooting</a></li>
+                  <li><a class="dropdown-item" href="service6.html">Washing Machine Repair</a></li>
+                </ul>
+              </li>
+          
+
+
+
+            <li class="nav-item"><a class="nav-link text-light" href="reviews.html">REVIEWS</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="faqs.html">FAQ's</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="aboutus.html">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="contacts.html">CONTACTS</a></li>
+          </ul>
+          <div class="ms-auto">
+            <a href="schedule.html">
+              <button class="btn btn-warning sched-btn">SCHEDULE</button>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <!------- MAIN CONTENT ------->
+
+<main>
+  <div class="banner text-center d-flex align-items-center">
+    <div class="container py-5">
+      <h1 class="text-light fw-bold display-5 display-md-4">Stay Cool with</h1>
+      <h1 class="text-warning fw-bold display-5 display-md-4">Trusted Aircon Experts.</h1>
+      <p class="text-light fs-6 fs-md-5">
+        Whether you need a new installation or a quick repair, we deliver quality air conditioning solutions tailored to your needs.
+      </p>
+      <a href="services.html">
+        <button class="btn btn-warning fw-bold px-4 py-2 mt-3">Get Started</button>
+      </a>
+    </div>
+  </div>
+  
+
+  <section class="info-cards-section py-5">
+    <div class="container">
+      
+      <div class="text-center mb-5 px-3">
+        <h2 class="section-title">A FAMILY RUN BUSINESS.</h2>
+        <p class="section-subtitle">
+          At Crisercon Services, we serve all Tarlac and Pampanga areas. <br>
+          We specialize in air conditioning services, including installation and repairs.
+          From home to office solutions, our trusted family-run company ensures quality and reliability.
+        </p>
+      </div>
+  
+      <div class="row g-4 justify-content-center">
+  
+        <div class="col-md-4">
+          <div class="info-card text-center h-100">
+            <img src="imgs/FinalIMG/website/enironment.png" alt="Environment Icon" class="card-icon mb-3">
+            <h5>ENVIRONMENT</h5>
+            <p>We use eco-friendly and non-toxic materials, ensuring safety for your home and office.</p>
+            <a href="environmentInfo.html" class="btn read-more-btn">READ MORE</a>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="info-card text-center h-100">
+            <img src="imgs/FinalIMG/website/time.png" alt="Professionalism Icon" class="card-icon mb-3">
+            <h5>PROFESSIONALISM</h5>
+            <p>We value your time and ensure punctuality. Expect email reminders for scheduled services.</p>
+            <a href="professionalismInfo.html" class="btn read-more-btn">READ MORE</a>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="info-card text-center h-100">
+            <img src="imgs/FinalIMG/website/price.png" alt="Pricing Icon" class="card-icon mb-3">
+            <h5>PRICING</h5>
+            <p>We provide expert service at the best possible price without compromising on quality.</p>
+            <a href="pricingInfo.html" class="btn read-more-btn">READ MORE</a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+  <section class="image-text-section row">
+    <div class="col-md-6">
+      <img src="imgs/FinalIMG/website/aboutUsBanner.png" alt="Crisercon Services">
+    </div>
+    <div class="col-md-6 image-text-content">
+      <h2>The Leading Air Conditioning Experts</h2>
+      <p>We specialize in installation, maintenance, and repairs. Our trusted professionals ensure your home or office stays cool and comfortable.</p>
+      <a href="moreAboutUs.html">
+        <button class="btn btn-dark">More About Us</button>
+      </a>
+    </div>
+  </section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="py-5 bg-light" id="contact">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="fw-bold mb-3 text-warning">Have a Question? Reach Out!</h2>
+
+        <form id="contactForm">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <input type="text" class="form-control" id="phone" placeholder="Phone Number">
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control" id="emailContact" placeholder="Email Address">
+            </div>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your Message"></textarea>
+          </div>
+          <div class="text-start">
+            <button type="submit" class="btn btn-warning fw-bold px-4 py-2"><i class="fas fa-paper-plane me-2"></i>SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<footer class="text-white pt-5 custom-footer">
+  <div class="container py-5">
+    <div class="row">
+      <!-- Logo Column -->
+      <div class="col-md-3 text-center text-md-start">
+        <img src="imgs/FinalIMG/website/logo.png" alt="Crisercon Logo" class="img-fluid" style="max-width: 150px;">
+      </div>
+
+      <!-- Features Column -->
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li><a href="services.html" class="text-white text-decoration-none">Service</a></li>
+          <li><a href="contacts.html" class="text-white text-decoration-none">Contact Us</a></li>
+          <li><a href="privacyPolicy.html" class="text-white text-decoration-none">Privacy Policy</a></li>
+          <li><a href="termsAndCondition.html" class="text-white text-decoration-none">Terms & Condition</a></li>
+        </ul>
+        <a href="schedule.html">
+          <button class="btn btn-login mt-3">SCHEDULE</button>
+        </a>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-md-3">
+        <h5 class="fw-bold text-uppercase mb-3">Content</h5>
+        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Santo Domingo 2nd</p>
+        <p class="mb-2">Capas, Tarlac</p>
+        <p class="mb-2"><i class="fas fa-envelope me-2"></i><a href="mailto:info@markquiambao312005@gmail.com" class="text-white text-decoration-none">CriserconServices.com</a></p>
+        <p><i class="fas fa-phone me-2"></i><a href="tel:1234567890" class="text-white text-decoration-none">123-456-7890</a></p>
+      </div>
+
+      <!-- Opening Column -->
+      <div class="col-md-3">
+        <h5 class="fw-bold text-uppercase mb-3">Opening</h5>
+        <p class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Monday - Sunday</p>
+        <p><i class="fas fa-clock me-2"></i>7:00 am - 10:00 pm</p>
+        <a href="aboutus.html" class="text-white text-decoration-none d-block mt-4">About Crisercon Services</a>
+        <a href="hiring.html" class="text-white text-decoration-none d-block">Looking For a Job?</a>
+      </div>
+    </div>
+
+    <hr class="border-light mt-5" />
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+      <p class="mb-0 text-center text-md-start">&copy; 2025 Crisercon Services | All Rights Reserved.</p>
+      <div class="social-icons mt-3 mt-md-0">
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('emailContact').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!firstName || !lastName || !phone || !email || !message) {
+      alert('Please fill out all fields before submitting.');
+      return;
+    }
+
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValid) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // If everything is valid, go to contacts.html
+    window.location.href = 'successful.html';
+  });
+</script>
+
+</body>
+</html>
+
+
+
+    <!------- BOOTSTRAP JS ------->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
